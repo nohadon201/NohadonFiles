@@ -1,4 +1,4 @@
-# Personal Portfolio Website
+# Nohadon Files
 
 This repository contains the code for my personal portfolio website, built using **Angular 18.2**. The website showcases my personal projects, organized into various sections, including my work in game development, custom game engine development, OpenGL/WebGL projects, and personal interests.
 
@@ -26,7 +26,7 @@ The site is divided into different sections, each highlighting a specific catego
 
 ## Sections
 
-### Programming Projects
+### Game Development Projects
 Here, you will find a collection of my game development projects, using different engines and technologies.
 
 - **Unity Projects**: This section contains projects developed using the Unity engine. Each project will include descriptions, gameplay videos, and links to the source code (if applicable).
@@ -35,7 +35,7 @@ Here, you will find a collection of my game development projects, using differen
 
 - **Unreal Engine Projects**: This section features projects built using Unreal Engine, including details on 3D modeling, level design, and gameplay mechanics.
 
-### NohadEngine
+### NohadEngine [Under Construction]
 A special section dedicated to **NohadEngine**, a custom game engine I am developing from scratch using **C++** and **SFML**. Here you will find:
 
 - Development updates
@@ -43,21 +43,21 @@ A special section dedicated to **NohadEngine**, a custom game engine I am develo
 - Demo videos showcasing engine capabilities
 - Links to the repository and technical documentation
 
-### Future Projects
+### Graphics Development Projects [Under Construction]
 In this section, I will present upcoming projects that involve more advanced graphics programming, including **OpenGL**, **WebGL**, and **shader development**. Planned projects will include:
 
 - Real-time rendering techniques
 - Shaders written in GLSL
 - 3D and 2D graphics applications
 
-### Personal Interests
+### About Me
 This section provides a glimpse into my personal tastes and inspirations.
 
-- **Favorite Music**: A list of my favorite music artists, albums, and genres that inspire me.
+- **Favorite Music**
   
-- **Favorite Movies**: A curated list of films that have had a significant impact on me, with short descriptions explaining why.
+- **Favorite Movies**
   
-- **Favorite Books**: Books that have shaped my thoughts, creativity, and approach to programming and game development.
+- **Favorite Books**
 
 ## Technologies Used
 - **Angular 18.2**: The primary framework for building the front-end of the website.
@@ -71,7 +71,7 @@ To run this project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-portfolio.git
+   git clone git@github.com:nohadon201/NohadonFiles.git
 
 2. Install dependencies:
   

@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+/*#region Fonts*/
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFont-Regular.ttf");
+  font-family: main_font;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFont-Bold.ttf");
+  font-family: main_font_bold;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFont-Italic.ttf");
+  font-family: main_font_italic;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFont-BoldItalic.ttf");
+  font-family: main_font_bitalic;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFontMono-Regular.ttf");
+  font-family: title_main_font;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFontMono-Bold.ttf");
+  font-family: title_main_font_bold;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFontMono-Italic.ttf");
+  font-family: title_main_font_italic;
+}
+
+/*#endregion*/
+
+
+html {
+  width: 100%;
+  height: 100%;
+  max-height: fit-content;
+  max-width: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  max-height: fit-content;
+  max-width: 100%;
+  color: white;
+  font-family: main_font;
+}
+
+#main_header {
+  background-color: black;
+  display: flex;
+  align-content: center;
+  vertical-align: middle;
+  font-family: title_main_font_bold;
+  max-height: 20%;
+}

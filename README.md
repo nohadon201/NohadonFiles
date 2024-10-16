@@ -1,4 +1,4 @@
-# Nohadon Files
+# Nohadon Files [Project Under Construction]
 
 This repository contains the code for my personal portfolio website, built using **Angular 18.2**. The website showcases my personal projects, organized into various sections, including my work in game development, custom game engine development, OpenGL/WebGL projects, and personal interests.
 
@@ -26,7 +26,7 @@ The site is divided into different sections, each highlighting a specific catego
 
 ## Sections
 
-### Game Development Projects
+### Game Development Projects [Under Construction]
 Here, you will find a collection of my game development projects, using different engines and technologies.
 
 - **Unity Projects**: This section contains projects developed using the Unity engine. Each project will include descriptions, gameplay videos, and links to the source code (if applicable).
@@ -50,7 +50,7 @@ In this section, I will present upcoming projects that involve more advanced gra
 - Shaders written in GLSL
 - 3D and 2D graphics applications
 
-### About Me
+### About Me [Under Construction]
 This section provides a glimpse into my personal tastes and inspirations.
 
 - **Favorite Music**

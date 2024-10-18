@@ -46,34 +46,8 @@
 @keyframes NavigationSectionHover {
 
   0% {
-    color: #ff0000;
     background-color: black;
-  }
-
-  14% {
-    color: #ffa600;
-  }
-
-  28% {
-    color: #fff200;
-  }
-
-  43% {
-    color: #7bff00;
-  }
-
-  57% {
-    color: #00fffb;
-  }
-
-  71% {
-    color: #9000ff;
-  }
-
-  86% {
-    color: #ff00f7;
-    background-color: black;
-
+    color: white;
   }
 
   100% {
@@ -113,8 +87,9 @@ body {
   vertical-align: middle;
   align-content: center;
   font-family: title_main_font_bold;
-  height: 100%;
+  height: 13%;
   max-height: 120px;
+  min-height: 80px;
 }
 
 #main_header h1 {
@@ -130,7 +105,8 @@ nav {
   border: solid white 2px;
   padding: 0px;
   height: 10%;
-  max-height: 50px;
+  max-height: 30px;
+  
 }
 
 #main_menu_navigation {
@@ -147,12 +123,12 @@ nav {
   height: 100%;
   width: 20%;
   max-width: 200px;
-  text-align: center;
   align-items: center;
+  text-align: center;
 }
 
 .page_section:hover {
-  animation: NavigationSectionHover 3s forwards;
+  animation: NavigationSectionHover 0.5s forwards;
 }
 
 .page_section a {
@@ -161,7 +137,7 @@ nav {
 }
 
 .page_section:hover a {
-  animation: NavigationSectionHover 3s forwards;
+  animation: NavigationSectionHover 0.5s forwards;
 }
 
 

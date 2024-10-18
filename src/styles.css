@@ -1,3 +1,13 @@
+/*#region Media*/
+@media (max-width: 800px) {
+  #main_menu_navigation {
+    flex-direction: column;
+  }
+}
+
+/*#endregion*/
+
+
 /*#region Fonts*/
 
 @font-face {
@@ -104,41 +114,34 @@ nav {
   display: block;
   border: solid white 2px;
   padding: 0px;
-  height: 10%;
-  max-height: 30px;
-  
+  height: 5%;
+  min-height: 40px;
 }
 
 #main_menu_navigation {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin: 0px;
+  padding: 0px;
+  overflow-block: hidden;
 }
 
 .page_section {
-  display: inline-flex;
+  display: flexbox;
   height: 100%;
   width: 20%;
-  max-width: 200px;
-  align-items: center;
+  min-width: 110px;
+  color: white;
   text-align: center;
+  text-decoration: none;
+  font-size: 100%;
 }
 
 .page_section:hover {
   animation: NavigationSectionHover 0.5s forwards;
 }
-
-.page_section a {
-  text-decoration: none;
-  color: var(--my-color);
-}
-
-.page_section:hover a {
-  animation: NavigationSectionHover 0.5s forwards;
-}
-
 
 /*#endregion*/

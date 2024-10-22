@@ -105,9 +105,10 @@ body {
   text-align: center;
 }
 
-#main_menu_button {
+#display_menu_btn_container {
   flex: 20%;
   display: none;
+  align-content: center;
 }
 
 /*#endregion*/
@@ -131,6 +132,7 @@ body {
   display: block;
   flex: 20%;
   height: 100%;
+  min-height: 40px;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -144,36 +146,54 @@ body {
 /*#endregion*/
 
 /*#region Media*/
-
 @media screen and (max-width: 700px) {
-  :root {
-    --display-nav: none;
-  }
 
   #main_menu_navigation {
-    position: relative;
     flex-direction: column;
-    height: fit-content;
-    /*left: -700px;
-    transition: all 0.5s;*/
-  }
-
-  #main_menu_button {
-    display: block;
-    align-content: center;
-  }
-
-  #display_navigation {
-    margin-left: 45%;
-  }
-
-  input[type=checkbox]:checked+#main_menu_navigation {
-    --display-nav: flex;
+    min-height: fit-content;
+    transition: all 0.5s;
   }
 
   #main_title_container {
     flex: 80%;
   }
+
+  #display_menu_btn_container {
+    display: block;
+  }
+
+  #display_menu_btn {
+    margin-left: 40%;
+  }
+
+  /**
+  * BUTTON MENU NOT PRESSED
+  */
+  .main_menu_navigation {
+    position: fixed;
+    opacity: 0;
+  }
+
+  .main_menu_navigation a {
+    display: none;
+  }
+
+  /**
+  * BUTTON MENU PRESSED
+  */
+  .main_menu_navigation.show {
+    position: static;
+    transform: 0;
+    opacity: 1;
+  }
+
+  .main_menu_navigation.show a {
+    display: block;
+  }
+
+
+
+
 }
 
 /*#endregion*/

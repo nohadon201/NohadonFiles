@@ -12,7 +12,7 @@ class Menu {
   private clicked: Boolean = false;
 
   constructor() {
-    let btn = <HTMLInputElement>document.getElementById("display_menu_btn");
+    let btn = <HTMLButtonElement>document.getElementById("display_menu_btn");
     btn.addEventListener("click", (_: Event) => this.onDisplayMenu());
     this.navMenu = <HTMLDivElement>document.getElementById("main_menu_navigation")
 

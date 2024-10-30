@@ -171,7 +171,38 @@ body {
 /*#region Section*/
 #main_section {
   height: 80%;
-  margin-top: 10px;
+  margin: 20px 3% 10px 3%;
+}
+
+.blue {
+  text-decoration: bold;
+  color: #41D2F2;
+}
+
+.red {
+  text-decoration: bold;
+  color: #D92534;
+}
+
+.purple {
+  color: #5A30F2;
+}
+
+.green {
+  color: #0CF25D;
+}
+
+.white {
+  color: white;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.icon {
+  font-size: 40px;
+  margin: 0px 10px 0px 10px;
 }
 
 /*#endregion*/

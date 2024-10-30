@@ -1,3 +1,55 @@
+#container {
+  padding: 0px 4% 0px 4%;
+  background-color: #0367A6;
+  animation: Appear 1s;
+}
+
+#container>div {
+  padding: 0px 5% 0px 5%;
+  background-color: #024873;
+}
+
+#container>div>div {
+  padding: 2%;
+  background-color: #012840;
+}
+
+#container h1,
+h2,
+h3,
+h4 {
+  text-decoration: bold;
+  color: #41D2F2;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-left: 6%;
+}
+
+h3 {
+  margin-left: 4%;
+}
+
+h4 {
+  margin-left: 2%;
+}
+
 p {
-  color: white;
+  text-align: justify;
+}
+
+@keyframes Appear {
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
 }

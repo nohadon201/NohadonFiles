@@ -112,7 +112,7 @@ body {
 #main_header {
   height: 13%;
   max-height: 120px;
-  min-height: 80px;
+  min-height: 120px;
   display: flex;
 }
 
@@ -259,9 +259,45 @@ body {
   .main_menu_navigation.show a {
     display: block;
   }
+}
 
+/*#endregion*/
 
+/*#region Keyframes*/
+@keyframes Iris {
+  0% {
+    text-shadow: -2px 2px 10px #D92534, -1px 1px 10px #F29F05, 0px 0px 10px #0CF25D, 1px 0px 10px #41D2F2, 2px 0px 10px #5A30F2;
+  }
 
+  20% {
+    text-shadow: 2px 1px 10px #F29F05, 1px 0.5px 10px #0CF25D, 0px 0px 10px #41D2F2, -1px 0px 10px #5A30F2, -2px 0px 10px #D92534;
+  }
+
+  40% {
+    text-shadow: -2px 0px 10px #0CF25D, -1px 0px 10px #41D2F2, 0px 0px 10px #5A30F2, 1px 0px 10px #D92534, 2px 0px 10px #F29F05;
+  }
+
+  60% {
+    text-shadow: 2px -1px 10px #41D2F2, 1px -0.5px 10px #5A30F2, 0px 0px 10px #D92534, -1px 0px 10px #F29F05, -2px 0px 10px #0CF25D;
+  }
+
+  80% {
+    text-shadow: -2px -2px 10px #5A30F2, -1px -1px 10px #D92534, 0px 0px 10px #F29F05, -1px 0px 10px #0CF25D, -2px 0px 10px #41D2F2;
+
+  }
+
+  100% {}
+}
+
+@keyframes Appear {
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 
 }
 

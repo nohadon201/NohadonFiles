@@ -3,3 +3,32 @@ body {
   height: 100%;
   margin: 0px;
 }
+
+h1 {
+  opacity: 0;
+  color: black;
+  font-size: 45px;
+  color: #f6d8d5;
+  opacity: 0.9;
+  text-shadow: 0px 0px 10px #D92534, 0px 0px 10px #F29F05, 0px 0px 10px #0CF25D, 0px 0px 10px #41D2F2, 0px 0px 10px #5A30F2;
+}
+
+.iris.one {
+  animation: Iris 1.25s infinite;
+}
+
+.iris.two {
+  animation: Iris 1s infinite;
+}
+
+.iris.three {
+  animation: Iris 0.75s infinite;
+}
+
+.iris.four {
+  animation: Iris 0.5s infinite;
+}
+
+.iris.five {
+  animation: Iris 3s infinite;
+}

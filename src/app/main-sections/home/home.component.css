@@ -24,6 +24,7 @@ h4 {
 
 h1 {
   text-align: center;
+  font-size: 40px;
 }
 
 h2 {
@@ -32,6 +33,7 @@ h2 {
 
 h3 {
   margin-left: 4%;
+  text-decoration: underline;
 }
 
 h4 {
@@ -40,16 +42,5 @@ h4 {
 
 p {
   text-align: justify;
-}
-
-@keyframes Appear {
-
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-
+  font-size: 18px;
 }

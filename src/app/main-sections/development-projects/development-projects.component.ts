@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { DevProject } from './dev_project';
 
 @Component({
   standalone: true,
@@ -10,6 +11,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './development-projects.component.css'
 })
 
+
 export class DevelopmentProjectsComponent {
-  public data = ["hola", "adios"]
+  public data = [
+    new DevProject("Frameworks", false, "../../../../public/resources/images/icons/menu_icon.png", "", ""),
+  ]
+
+
+
 }

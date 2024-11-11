@@ -3,9 +3,10 @@
     <div>
       <div class="grid">
         <ng-container *ngFor="let row of data">
-          <div class="dev-project-item">
-            <label>{{row}}</label>
-          </div>
+          <a class="dev-project-item">
+            <img src="{{row.imgSrc}}" style="width: 30px; height: 30px;">
+            <label>{{row.title}}</label>
+          </a>
         </ng-container>
       </div>
     </div>

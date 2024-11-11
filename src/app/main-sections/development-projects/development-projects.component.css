@@ -23,4 +23,6 @@
   grid-template-columns: auto auto auto auto;
 }
 
-.dev-project-item {}
+.dev-project-item {
+  display: block;
+}

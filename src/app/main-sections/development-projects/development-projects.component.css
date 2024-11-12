@@ -1,28 +1,35 @@
 #container {
-  padding: 0px 4% 0px 4%;
   background-color: #471BA6;
-  animation: Appear 1s;
 }
 
 #container>div {
-  padding: 0px 5% 0px 5%;
   background-color: #361973;
 }
 
 #container>div>div {
-  padding: 2%;
   background-color: #1D1340;
 }
 
+#container h1,
+h2,
+h3,
+h4 {
+  color: #7D3DFC;
+}
+
 .grid {
+  padding: 10px;
+  border-top: dotted;
+  border-bottom: dotted;
   color: #7D3DFC;
   font-weight: bold;
   display: grid;
-  width: 100%;
+  width: 98%;
   height: 100%;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 300px 300px 300px 300px;
 }
 
 .dev-project-item {
   display: block;
+  border: none;
 }

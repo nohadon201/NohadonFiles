@@ -205,6 +205,49 @@ body {
   margin: 0px 10px 0px 10px;
 }
 
+#container {
+  padding: 0px 4% 0px 4%;
+  animation: Appear 1s;
+}
+
+#container>div {
+  padding: 0px 5% 0px 5%;
+}
+
+#container>div>div {
+  padding: 2%;
+}
+
+#container h1,
+h2,
+h3,
+h4 {
+  text-decoration: bold;
+}
+
+#container h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+#container h2 {
+  margin-left: 6%;
+}
+
+#container h3 {
+  margin-left: 4%;
+  text-decoration: underline;
+}
+
+#container h4 {
+  margin-left: 2%;
+}
+
+#container p {
+  text-align: justify;
+  font-size: 18px;
+}
+
 /*#endregion*/
 
 /*#region Media*/

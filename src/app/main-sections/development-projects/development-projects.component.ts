@@ -3,6 +3,7 @@ import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { DevProject } from './dev_model';
 import { HttpServiceService } from '../../Services/http/http-service.service';
+import { HttpEvent } from '@angular/common/http';
 
 @Component({
   standalone: true,
@@ -15,19 +16,18 @@ import { HttpServiceService } from '../../Services/http/http-service.service';
 
 export class DevelopmentProjectsComponent {
 
-  constructor(private httpClient: HttpServiceService) {
+  public data: DevProject[] = [];
 
+  constructor(private httpClient: HttpServiceService) {
+    this.httpClient.getJson('http://localhost:8080/projects/getAll')
+      .then((value) => {
+        this.data = value
+      });
   }
 
-  public data = [
-    new DevProject(0, "Frameworks", "Java", false),
-    new DevProject(1, "Multithreading", "Java", false)
-  ]
+
 
   displayProject(id: number) {
-    this.httpClient.getJson('https://catfact.ninja/fact').then((value) => {
-      console.log("aaaaa");
-      console.log(value);
-    });
+
   }
 }

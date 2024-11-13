@@ -1,3 +1,4 @@
+
 const DEFAULT_ICON = "";
 
 export class DevProject {
@@ -11,4 +12,7 @@ export class DevProject {
   ) { }
 }
 
+export class DevRepo {
+  public projects: Array<DevProject> = new Array<DevProject>();
+}
 

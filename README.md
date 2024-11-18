@@ -83,6 +83,8 @@ To run this project locally:
 
 4. Open a browser and go to http://localhost:4200/ to view the website.
 
+NOTE: The web will work perfectly without the backend but the Development Projects section will be empty. Because it needs the backend to work.
+
 ## Contact
 
 If you have any questions, suggestions, or just want to connect, feel free to reach out to me:

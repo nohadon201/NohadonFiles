@@ -9,10 +9,14 @@ export class DevProject {
     public inProgress: boolean = true,
     public icon: string = DEFAULT_ICON,
     public color: string = "purple",
+    public githubUrl: string = ""
   ) { }
 }
+class FileInfo {
+  constructor(public title: string, public url: string, public size: number) { }
+}
 
-export class DevRepo {
-  public projects: Array<DevProject> = new Array<DevProject>();
+export class DirectoryInfo {
+  constructor(public files: Array<FileInfo>, public directories: Array<DirectoryInfo>) { }
 }
 

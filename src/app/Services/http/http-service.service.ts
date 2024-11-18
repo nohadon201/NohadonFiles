@@ -13,9 +13,16 @@ export class HttpServiceService {
 
   }
 
-  async getJson(url: string): Promise<Array<DevProject>> {
+  async getAllItems<T>(url: string): Promise<Array<T>> {
     let headers = new HttpHeaders();
     headers.append("Access-Control-Allow-Origin", "*")
-    return await firstValueFrom(this.client.get<Array<DevProject>>(url, { headers: headers }));
+    return await firstValueFrom(this.client.get<Array<T>>(url, { headers: headers }));
   }
+
+  async getItem<T>(url: string): Promise<T> {
+    let headers = new HttpHeaders();
+    headers.append("Access-Control-Allow-Origin", "*")
+    return await firstValueFrom(this.client.get<T>(url, { headers: headers }));
+  }
+
 }

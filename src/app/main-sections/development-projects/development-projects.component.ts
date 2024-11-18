@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { DevProject } from './dev_model';
+import { DevProject, DirectoryInfo } from './dev_model';
 import { HttpServiceService } from '../../Services/http/http-service.service';
-import { HttpEvent } from '@angular/common/http';
 
 @Component({
   standalone: true,
@@ -16,18 +15,29 @@ import { HttpEvent } from '@angular/common/http';
 
 export class DevelopmentProjectsComponent {
 
-  public data: DevProject[] = [];
+  public projects: DevProject[] = [];
+
+  public currentProject: DirectoryInfo | null;
+
+  @ViewChild('container', { static: false }) container: ElementRef;
 
   constructor(private httpClient: HttpServiceService) {
-    this.httpClient.getJson('http://localhost:8080/projects/getAll')
+    this.httpClient.getAllItems<DevProject>('http://localhost:8080/projects/getAll')
       .then((value) => {
-        this.data = value
+        this.projects = value
       });
   }
 
-
-
-  displayProject(id: number) {
+  displayProject(title: string) {
+    document.getElementById("container")?.classList.toggle("no-content")
+    document.getElementById("loader-container")?.classList.toggle("no-content")
+    this.httpClient.getItem<DirectoryInfo>('http://localhost:8080/projects/getProjectContent?projectName=' + title)
+      .then((value) => {
+        this.currentProject = value
+        document.getElementById("loader-container")?.classList.toggle("no-content")
+        document.getElementById("displayer")?.classList.toggle("no-content")
+        console.log(this.currentProject)
+      });
 
   }
 }

@@ -208,6 +208,7 @@ body {
 #container {
   padding: 0px 4% 0px 4%;
   animation: Appear 1s;
+  transition: all 1s;
 }
 
 #container>div {

@@ -39,6 +39,15 @@ h4 {
 .dev-project-item {
   display: block;
   border: none;
+  font-size: 20px;
+  text-align: center;
+  padding: 4px;
+}
+
+
+.dev-project-item:hover {
+  border: 1px solid #471BA6;
+  border-radius: 0.5em;
 }
 
 /**
@@ -220,3 +229,98 @@ h4 {
 /**
  * endregion
  * */
+
+/**#region Displayer
+ * */
+
+#project_info {
+  padding: 2%;
+  text-align: justify;
+  font-size: 20px;
+  width: 100%;
+  max-width: 1900px;
+  font-family: project_font;
+
+  position: relative;
+  box-sizing: border-box;
+
+  color: #FFF;
+  background: #000;
+  background-clip: padding-box;
+  /* !importanté */
+  border: solid 5px transparent;
+  /* !importanté */
+  border-radius: 1em;
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -5px;
+    /* !importanté */
+    border-radius: inherit;
+    /* !importanté */
+    background: linear-gradient(217deg, #6907F2, #361973 70.71%),
+      linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+    /*background: linear-gradient(to bottom right, #6907F2, #1D1340);*/
+  }
+}
+
+#repo_project_displayer {
+  margin: auto;
+  width: 100%;
+  border: 3px solid purple;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#tree {
+  display: block;
+  flex: 20%;
+  height: 100%;
+  border: 3px solid purple;
+  margin: 0px;
+  list-style: none;
+  padding: 10px;
+}
+
+#tree li {
+  display: block;
+}
+
+#tree li:hover {
+  background-color: purple;
+}
+
+#code {
+  display: block;
+  flex: calc(80% - 50px);
+  border: 3px solid purple;
+  margin: 0px;
+  padding: 10px;
+}
+
+#code pre {
+  display: inline;
+}
+
+
+#displayer h1,
+h2,
+h3,
+h4 {
+  color: #7a20f8;
+  text-shadow: #9852fa 3px;
+}
+
+#displayer h1 {
+  font-size: 45px;
+  text-align: center;
+}

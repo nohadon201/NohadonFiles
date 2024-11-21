@@ -53,17 +53,79 @@
 
 @font-face {
   src: url("../resources/fonts/HackNerdFontMono-Regular.ttf");
-  font-family: title_main_font;
+  font-family: main_mono_font;
 }
 
 @font-face {
   src: url("../resources/fonts/HackNerdFontMono-Bold.ttf");
-  font-family: title_main_font_bold;
+  font-family: main_mono_font_bold;
 }
 
 @font-face {
   src: url("../resources/fonts/HackNerdFontMono-Italic.ttf");
-  font-family: title_main_font_italic;
+  font-family: main_mono_font_italic;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFontPropo-Regular.ttf");
+  font-family: main_propo_font;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFontPropo-Bold.ttf");
+  font-family: main_propo_font_bold;
+}
+
+@font-face {
+  src: url("../resources/fonts/HackNerdFontPropo-Italic.ttf");
+  font-family: main_propo_font_italic;
+}
+
+/*          PROJECT FONT        */
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFont-Regular.ttf");
+  font-family: project_font;
+}
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFont-Bold.ttf");
+  font-family: project_font_bold;
+}
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFont-Italic.ttf");
+  font-family: project_font_italic;
+}
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFontMono-Regular.ttf");
+  font-family: project_mono_font;
+}
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFontMono-Bold.ttf");
+  font-family: project_mono_font_bold;
+}
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFontMono-Italic.ttf");
+  font-family: project_mono_font_italic;
+}
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFontPropo-Regular.ttf");
+  font-family: project_propo_font;
+}
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFontPropo-Bold.ttf");
+  font-family: project_propo_font_bold;
+}
+
+@font-face {
+  src: url("../resources/fonts/0xProtoNerdFontPropo-Italic.ttf");
+  font-family: project_propo_font_italic;
 }
 
 /*#endregion*/
@@ -120,7 +182,7 @@ body {
   height: 100%;
   vertical-align: middle;
   align-content: center;
-  font-family: title_main_font_bold;
+  font-family: project_mono_font_bold;
   flex: 100%;
 }
 

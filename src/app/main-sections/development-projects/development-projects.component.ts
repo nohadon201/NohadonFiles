@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { DevProject, DirectoryInfo } from './dev_model';
+import { DevProject, GitDirectoryInfo } from './dev_model';
 import { HttpServiceService } from '../../Services/http/http-service.service';
 
 @Component({
@@ -17,7 +17,11 @@ export class DevelopmentProjectsComponent {
 
   public projects: DevProject[] = [];
 
-  public currentProject: DirectoryInfo | null;
+  public currentProject: GitDirectoryInfo | null;
+
+  public currentProjectDisplayed: DevProject | null;
+
+  public code: string = "";
 
   @ViewChild('container', { static: false }) container: ElementRef;
 
@@ -28,16 +32,23 @@ export class DevelopmentProjectsComponent {
       });
   }
 
-  displayProject(title: string) {
+  displayProject(project: DevProject) {
+    this.currentProjectDisplayed = project;
     document.getElementById("container")?.classList.toggle("no-content")
     document.getElementById("loader-container")?.classList.toggle("no-content")
-    this.httpClient.getItem<DirectoryInfo>('http://localhost:8080/projects/getProjectContent?projectName=' + title)
+    this.httpClient.getItem<GitDirectoryInfo>('http://localhost:8080/projects/getProject?projectName=' + project.githubProjectName)
       .then((value) => {
         this.currentProject = value
         document.getElementById("loader-container")?.classList.toggle("no-content")
         document.getElementById("displayer")?.classList.toggle("no-content")
-        console.log(this.currentProject)
       });
-
   }
+
+  displayFile(path: string) {
+    this.httpClient.getText('http://localhost:8080/projects/getFile?projectName=' + this.currentProjectDisplayed?.githubProjectName + '&filePath=' + path)
+      .then((value) => {
+        this.code = value
+      });
+  }
+
 }

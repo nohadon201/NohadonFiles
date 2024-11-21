@@ -25,4 +25,16 @@ export class HttpServiceService {
     return await firstValueFrom(this.client.get<T>(url, { headers: headers }));
   }
 
+  async getText(url: string): Promise<string> {
+    let headers = new HttpHeaders();
+    headers.append("Access-Control-Allow-Origin", "*")
+    headers.append("Accept", "text/html, application/xhtml+xml, */*")
+    headers.append("Content-Type", "application/x-www-form-urlencoded")
+    let options = {
+      headers: headers,
+      responseType: 'text' as 'text'
+    };
+    return await firstValueFrom(this.client.get(url, options));
+  }
+
 }

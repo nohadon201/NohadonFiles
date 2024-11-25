@@ -1,7 +1,6 @@
 import { HttpClient, HttpEvent, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { DevProject } from '../../main-sections/development-projects/dev_model';
 
 @Injectable({
   providedIn: 'root'

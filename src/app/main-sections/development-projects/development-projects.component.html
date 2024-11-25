@@ -1,10 +1,10 @@
 <div id="container" class="">
   <div>
     <div>
-      <h2>Projects</h2>
+      <h1>Projects</h1>
       <div class="grid">
         <ng-container *ngFor="let row of projects">
-          <a (click)="displayProject(row)" class="dev-project-item">
+          <a (click)="getProject(row)" class="dev-project-item">
             <span class="icon {{row.color}}">{{row.icon}}</span><br>
             <label>{{row.title}}<span *ngIf="row.inProgress" class="red" style="font-size:medium;"><br>[In
                 progress]</span></label>
@@ -26,20 +26,8 @@
     <div class="loader"></div>
   </div>
 </div>
-
-<div id="displayer" class="no-content">
-  <div id="project_info">
-    <h1>Hola</h1>
-    <p>Hola, buenas tardes este es mi proyecto personal</p>
-    <label>Current Directory: <a>/</a></label>
-    <div id="repo_project_displayer">
-      <ul id="tree">
-        <li (click)='this.displayFile("/src/app/app.component.ts")'>cosa1.2</li>
-      </ul>
-      <div id="code">
-        <pre>{{code}}</pre>
-      </div>
-    </div>
-  </div>
-
-</div>
+<ng-container *ngComponentOutlet="
+  this.ProjectDisplayType
+  inputs: {projectSelected: this.projectSelected, code:'', gitContent: this.gitFilesContent, father: this};
+  ">
+</ng-container>

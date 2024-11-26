@@ -17,6 +17,7 @@ export class DevProject {
     public description: string = ""
   ) { }
 }
+
 class GitFileInfo {
   constructor(public title: string, public url: string, public size: number) { }
 }
@@ -27,22 +28,20 @@ export class GitDirectoryInfo {
 
 
 @Component({
-
   standalone: true,
   imports: [NgFor],
-
   template: `
 <div id="displayer" class="no-content">
   <div id="project_info">
     <h1>{{projectSelected.title}}</h1>
     <p>{{projectSelected.description}}</p>
-    <label>Current Directory: <a>/</a></label>
+    <button (click)="this.father.goBackToPath()"></button><label>Current Directory: <span class="blue">{{gitContent.nameDirectory}}</span></label>
     <div id="repo_project_displayer">
       <ul id="tree">
-        <li *ngFor="let dir of gitContent.directories" (click)="father.displayDirectory(dir.nameDirectory)">
+        <li *ngFor="let dir of gitContent.directories" (click)="father.displayDirectory(dir.nameDirectory)" class="dir">
           {{dir.nameDirectory}}
         </li>
-        <li *ngFor="let file of gitContent.files" (click)="displayFile(file.url)">
+      <li *ngFor="let file of gitContent.files" (click)="displayFile(file.url)" class="{{getClass(file.title)}}">
           {{file.title}}
         </li>
 
@@ -74,6 +73,11 @@ export class ProjectDisplayComponent {
       .then((value) => {
         this.code = value
       });
+  }
+
+  getClass(fileName: string): string {
+    fileName = fileName.substring(fileName.lastIndexOf('.') + 1)
+    return fileName;
   }
 
 }

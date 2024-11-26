@@ -41,6 +41,7 @@ h4 {
   font-size: 20px;
   text-align: center;
   padding: 4px;
+  user-select: none;
 }
 
 
@@ -228,3 +229,7 @@ h4 {
 /**
  * endregion
  * */
+
+.container_project {
+  width: 100%;
+}

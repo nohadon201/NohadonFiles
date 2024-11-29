@@ -143,3 +143,16 @@ h4 {
 .dir::before {
   content: "";
 }
+
+#back {
+  font-size: 25px;
+  padding: 5px;
+  margin: 0.5%;
+  color: #F23041;
+  user-select: none;
+}
+
+#back:hover {
+  border: 1px solid;
+  border-radius: 2em;
+}

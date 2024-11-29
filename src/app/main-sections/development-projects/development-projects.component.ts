@@ -65,22 +65,21 @@ export class DevelopmentProjectsComponent {
 
   goBackToPath() {
     if (this.gitFilesContent.nameDirectory == '/') return;
+
     var path = this.gitFilesContent.nameDirectory
     path = path.startsWith('/') ? path.substring(1) : path;
     path = path.endsWith('/') ? path.substring(0, path.length - 1) : path;
+
     let pathToFollowArray = path.split("/")!;
     let dirToSearch = this.gitRootDir!;
+
     for (var a = 0; a < pathToFollowArray.length - 1; a++) {
       for (var e = 0; e < dirToSearch.directories.length; e++) {
-
         var pathToFollowSubdir = pathToFollowArray.at(a)!;
 
         var currentSubDirectoryToSearch = dirToSearch.directories.at(e)!.nameDirectory;
         currentSubDirectoryToSearch = currentSubDirectoryToSearch.startsWith('/') ? currentSubDirectoryToSearch.substring(1) : currentSubDirectoryToSearch;
         currentSubDirectoryToSearch = currentSubDirectoryToSearch.endsWith('/') ? currentSubDirectoryToSearch.substring(0, currentSubDirectoryToSearch.length - 1) : currentSubDirectoryToSearch;
-
-
-        console.log(pathToFollowSubdir + " " + currentSubDirectoryToSearch)
 
         if (currentSubDirectoryToSearch.includes(pathToFollowSubdir)) {
           dirToSearch = dirToSearch.directories.at(e)!;

@@ -16,3 +16,7 @@ h3,
 h4 {
   color: #41D2F2;
 }
+
+#container p {
+  font-size: 20px;
+}

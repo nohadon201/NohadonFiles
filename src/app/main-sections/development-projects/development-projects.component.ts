@@ -16,9 +16,9 @@ export class DevelopmentProjectsComponent {
 
   public projects: DevProject[] = [];
 
-  public gitFilesContent: GitDirectoryInfo = new GitDirectoryInfo("/", [], []);
+  public gitFilesContent: GitDirectoryInfo = new GitDirectoryInfo("", "/", [], []);
 
-  public gitRootDir: GitDirectoryInfo = new GitDirectoryInfo("/", [], []);
+  public gitRootDir: GitDirectoryInfo = new GitDirectoryInfo("", "/", [], []);
 
   public projectSelected: DevProject = new DevProject(-1, "Not Loaded", "", false, "", "", "", "");
 
@@ -66,7 +66,7 @@ export class DevelopmentProjectsComponent {
   goBackToPath() {
     if (this.gitFilesContent.nameDirectory == '/') return;
 
-    var path = this.gitFilesContent.nameDirectory
+    var path = this.gitFilesContent.fullPath
     path = path.startsWith('/') ? path.substring(1) : path;
     path = path.endsWith('/') ? path.substring(0, path.length - 1) : path;
 

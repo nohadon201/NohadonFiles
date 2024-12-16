@@ -23,7 +23,7 @@ class GitFileInfo {
 }
 
 export class GitDirectoryInfo {
-  constructor(public nameDirectory: string, public files: Array<GitFileInfo>, public directories: Array<GitDirectoryInfo>) { }
+  constructor(public nameDirectory: string, public fullPath: string, public files: Array<GitFileInfo>, public directories: Array<GitDirectoryInfo>) { }
 }
 
 
@@ -35,10 +35,10 @@ export class GitDirectoryInfo {
   <div id="project_info">
     <h1>{{projectSelected.title}}</h1>
     <p>{{projectSelected.description}}</p>
-    <a (click)="this.father.goBackToPath()" id="back">\uf104</a><label>Current Directory: <span class="blue">{{gitContent.nameDirectory}}</span></label>
+    <a (click)="this.father.goBackToPath()" id="back">\uf104</a><label>Current Directory: <span class="blue">{{gitContent.fullPath}}</span></label>
     <div id="repo_project_displayer">
       <ul id="tree">
-        <li *ngFor="let dir of gitContent.directories" (click)="father.displayDirectory(dir.nameDirectory)" class="dir">
+        <li *ngFor="let dir of gitContent.directories" (click)="father.displayDirectory(dir.fullPath)" class="dir">
           {{dir.nameDirectory}}
         </li>
         <li *ngFor="let file of gitContent.files" (click)="displayFile(file.url)" class="{{getClass(file.title)}}">

@@ -233,3 +233,7 @@ h4 {
 .container_project {
   width: 100%;
 }
+
+#code {
+  overflow: scroll;
+}

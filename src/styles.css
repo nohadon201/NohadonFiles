@@ -203,9 +203,9 @@ body {
   display: var(--display-nav);
   border: solid white 2px;
   padding: 0px;
-  height: 5%;
+  height: fit-content;
   flex-direction: row;
-  min-height: 60px;
+  max-height: 100px;
   width: 100%;
   justify-content: space-around;
   margin: 0px;
@@ -220,7 +220,8 @@ body {
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
+  /** TODO: Responsive, cuando pones la página muy pequeña se sobresale el texto**/
 }
 
 .page_section:hover {
@@ -316,10 +317,45 @@ h4 {
 /*#endregion*/
 
 /*#region Media*/
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
+
+  html {
+    width: 100%;
+  }
+
+  body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   #main_section {
     height: 87%;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
+
+  #container {
+    padding: 4% 0px 4% 0px;
+  }
+
+  #container>div {
+    padding: 5% 0px 5% 0px;
+  }
+
+  #container h1 {
+    font-size: 27px;
+  }
+
+  #container p {
+    font-size: 2px;
+    word-spacing: 5px;
+    white-space: 1%;
   }
 
   #main_menu_navigation {
@@ -332,16 +368,29 @@ h4 {
     flex: 80%;
   }
 
+  #main_title_container h1 {
+    font-size: 50px;
+  }
+
+
   #display_menu_btn_container {
     display: block;
   }
 
-  #display_menu_btn {
-    margin-left: 20%;
+  #display_menu_btn_container img {
     background-color: black;
-    width: 30%;
-    padding: 0px;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
   }
+
+
+
+  #display_menu_btn_container img:hover {
+    border: solid 1px white;
+    border-radius: 0.5em;
+  }
+
 
   /**
   * BUTTON MENU NOT PRESSED
@@ -367,6 +416,7 @@ h4 {
   .main_menu_navigation.show a {
     display: block;
   }
+
 }
 
 /*#endregion*/

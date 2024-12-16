@@ -38,7 +38,7 @@ export class DevelopmentProjectsComponent {
     this.projectSelected = project;
     document.getElementById("container")?.classList.toggle("no-content")
     document.getElementById("loader-container")?.classList.toggle("no-content")
-    this.httpClient.getItem<GitDirectoryInfo>('http://localhost:8080/projects/getProject?projectName=' + project.githubProjectName)
+    this.httpClient.getItem<GitDirectoryInfo>('http://localhost:8080/gitContent/get?projectName=' + project.githubProjectName)
       .then((value) => {
         this.gitRootDir = value
         this.gitFilesContent = value

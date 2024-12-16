@@ -46,7 +46,7 @@ export class GitDirectoryInfo {
         </li>
       </ul>
       <div id="code">
-        <pre>{{code}}</pre>
+        <pre><code>{{code}}</code></pre>
       </div>
     </div>
   </div>
@@ -68,7 +68,7 @@ export class ProjectDisplayComponent {
 
   displayFile(path: string) {
     console.log(path)
-    this.httpClient.getText('http://localhost:8080/projects/getFile?projectName=' + this.projectSelected?.githubProjectName + '&filePath=' + path)
+    this.httpClient.getText('http://localhost:8080/gitContent/readFile?projectName=' + this.projectSelected?.githubProjectName + '&filePath=' + path)
       .then((value) => {
         this.code = value
       });
@@ -78,5 +78,4 @@ export class ProjectDisplayComponent {
     fileName = fileName.substring(fileName.lastIndexOf('.') + 1)
     return fileName;
   }
-
 }

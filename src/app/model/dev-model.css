@@ -33,11 +33,8 @@
     left: 0;
     z-index: -1;
     margin: -5px;
-    /* !importanté */
     border-radius: inherit;
-    /* !importanté */
     background: linear-gradient(217deg, #6907F2, purple 91%);
-    /*background: linear-gradient(to bottom right, #6907F2, #1D1340);*/
   }
 }
 
@@ -58,8 +55,7 @@
 #tree {
   display: block;
   flex: 25%;
-  height: 100%;
-  border: 3px solid #6907F2;
+  height: auto;
   margin: 0px;
   list-style: none;
   padding: 10px;
@@ -84,13 +80,13 @@
   padding: 10px;
 }
 
-#code pre {
+#code code {
   display: inline;
   white-space: pre-wrap;
-  overflow-x: auto;
-  width: 500pc;
+  word-wrap: break-word;
+  text-align: justify;
+  min-height: 300px;
 }
-
 
 #displayer h1,
 h2,
@@ -109,6 +105,10 @@ h4 {
   opacity: 0;
   position: fixed;
 }
+
+/**
+ * #region ColorsByExtension
+ **/
 
 .json {
   color: #ffff00;
@@ -150,6 +150,20 @@ h4 {
   content: "";
 }
 
+.kts,
+.kt {
+  color: #610BD9;
+}
+
+.kts::before,
+.kt::before {
+  content: "";
+}
+
+/*
+ *#endregion
+ * */
+
 #back {
   font-size: 25px;
   padding: 5px;
@@ -161,4 +175,16 @@ h4 {
 #back:hover {
   border: 1px solid;
   border-radius: 2em;
+}
+
+@media all and (orientation:landscape) {
+  code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
+  }
+
+  #code {
+    overflow-x: scroll;
+  }
 }

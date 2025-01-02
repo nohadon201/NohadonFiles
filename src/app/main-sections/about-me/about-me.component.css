@@ -1,0 +1,24 @@
+#container {
+  background-color: #038C3E;
+}
+
+#container>div {
+  background-color: #02735E;
+}
+
+#container>div>div {
+  background-color: #034159;
+}
+
+#container h1,
+h2,
+h3,
+h4 {
+  color: #0CF25D;
+}
+
+
+.no-content {
+  opacity: 0;
+  position: fixed;
+}

@@ -1,0 +1,25 @@
+#container {
+  background-color: #F2163E;
+}
+
+#container>div {
+  background-color: #A6122D;
+}
+
+#container>div>div {
+  background-color: #731022;
+}
+
+#container h1,
+h2,
+h3,
+h4 {
+  color: #F21B54;
+  font-weight: bold;
+}
+
+
+.no-content {
+  opacity: 0;
+  position: fixed;
+}

@@ -221,7 +221,6 @@ body {
   text-align: center;
   text-decoration: none;
   font-size: 20px;
-  /** TODO: Responsive, cuando pones la página muy pequeña se sobresale el texto**/
 }
 
 .page_section:hover {
@@ -238,16 +237,16 @@ body {
 
 .blue {
   text-decoration: bold;
-  color: #41D2F2;
+  color: #0FC9F2;
 }
 
 .red {
   text-decoration: bold;
-  color: #D92534;
+  color: #F2163E;
 }
 
 .purple {
-  color: #5A30F2;
+  color: #6907F2;
 }
 
 .green {
@@ -352,7 +351,7 @@ h4 {
     font-size: 27px;
   }
 
-  #container p {
+  #container>p {
     font-size: 2px;
     word-spacing: 5px;
     white-space: 1%;
@@ -422,7 +421,7 @@ h4 {
 /*#endregion*/
 
 /*#region Keyframes*/
-@keyframes Iris {
+@keyframes PrismIris {
   0% {
     text-shadow: -2px 2px 10px #D92534, -1px 1px 10px #F29F05, 0px 0px 10px #0CF25D, 1px 0px 10px #41D2F2, 2px 0px 10px #5A30F2;
   }

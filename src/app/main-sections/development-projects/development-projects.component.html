@@ -6,8 +6,13 @@
         <ng-container *ngFor="let row of projects">
           <a (click)="getProject(row)" class="dev-project-item">
             <span class="icon {{row.color}}">{{row.icon}}</span><br>
-            <label>{{row.title}}<span *ngIf="row.inProgress" class="red" style="font-size:medium;"><br>[In
-                progress]</span></label>
+            <label>{{row.title}}</label>
+            <div class="dev-project-info">
+              <span *ngIf="row.inProgress" class="red" style="font-size:medium;"><br>[In
+                progress]</span>
+              <p><span class="purple">Tags -> </span>{{row.languages}}</p>
+              <p><span class="purple">Description -></span> {{row.subTitle}}</p>
+            </div>
           </a>
         </ng-container>
       </div>
@@ -25,6 +30,8 @@
     </div>
     <div class="loader"></div>
   </div>
+  <br>
+  <label>{{loadingProgress}}</label>
 </div>
 <ng-container *ngComponentOutlet="
   this.ProjectDisplayType

@@ -29,10 +29,10 @@ h4 {
   border-top: solid;
   color: #7D3DFC;
   font-weight: bold;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   width: 98%;
   height: 100%;
-  grid-template-columns: 300px 300px 300px 300px;
 }
 
 .dev-project-item {
@@ -42,16 +42,40 @@ h4 {
   text-align: center;
   padding: 4px;
   user-select: none;
+  flex: 25%;
+  min-width: 300px;
 }
 
+.dev-project-info {
+  position: absolute;
+  opacity: 0;
+  transition: all 1s;
+  background-color: #000000;
+  color: #F244E7;
+  max-width: 20%;
+  min-width: 250px;
+  z-index: 2;
+  font-size: 20px;
+}
+
+.dev-project-info p {
+  margin: 10px 10px 10px 10px;
+}
 
 .dev-project-item:hover {
   border: 1px solid #471BA6;
   border-radius: 0.5em;
+
+  .dev-project-info {
+    opacity: 0.7;
+  }
+}
+
+.dev-project-info:hover {
+  opacity: 0;
 }
 
 /**
-  display: flex;
  * #region Loader
  */
 
@@ -59,6 +83,12 @@ h4 {
   padding-top: 10%;
   align-content: center;
   width: 100%;
+  text-align: center;
+}
+
+#loader-container label {
+  margin-top: 500px;
+  font-size: 20px;
 }
 
 .pad-loading {
@@ -223,6 +253,37 @@ h4 {
       0.03px -0.01px 0.01px rgb(255 0 0),
       0.02px 0.02px 0 rgb(0 255 0),
       -0.02px 0.02px 0 rgb(0 0 255);
+  }
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 40px;
+  width: 500px;
+}
+
+.progress-value {
+  animation: load 11s normal forwards;
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background: #fff;
+  height: 30px;
+  width: 0;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
   }
 }
 

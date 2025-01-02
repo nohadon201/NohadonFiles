@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { NgComponentOutlet, NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { DevProject, GitDirectoryInfo, ProjectDisplayComponent } from './model/dev_model';
+import { DevProject, GitDirectoryInfo, ProjectDisplayComponent } from '../../model/dev_model';
 import { HttpServiceService } from '../../Services/http/http-service.service';
 
 
@@ -20,10 +20,13 @@ export class DevelopmentProjectsComponent {
 
   public gitRootDir: GitDirectoryInfo = new GitDirectoryInfo("", "/", [], []);
 
-  public projectSelected: DevProject = new DevProject(-1, "Not Loaded", "", false, "", "", "", "");
+  public projectSelected: DevProject = new DevProject(-1, "Not Loaded", "Error during load of object", "", false, "", "", "");
 
   public code: string = "";
 
+  public isLoading = false;
+
+  public loadingProgress: string = "";
 
   constructor(private httpClient: HttpServiceService) {
     this.httpClient.getAllItems<DevProject>('http://localhost:8080/projects/getAll')
@@ -35,16 +38,46 @@ export class DevelopmentProjectsComponent {
   get ProjectDisplayType() { return ProjectDisplayComponent }
 
   getProject(project: DevProject) {
+    if (this.isLoading) return;
+
+    this.isLoading = true
+
+    if (this.projectSelected.id == project.id && project.id != -1) {
+      document.getElementById("container")?.classList.toggle("no-content")
+      document.getElementById("displayer")?.classList.toggle("no-content")
+      return;
+    }
+
     this.projectSelected = project;
     document.getElementById("container")?.classList.toggle("no-content")
     document.getElementById("loader-container")?.classList.toggle("no-content")
-    this.httpClient.getItem<GitDirectoryInfo>('http://localhost:8080/gitContent/get?projectName=' + project.githubProjectName)
+    this.httpClient.getItem<GitDirectoryInfo>('http://localhost:8080/gitContent/get?id=' + project.id)
       .then((value) => {
         this.gitRootDir = value
         this.gitFilesContent = value
         document.getElementById("loader-container")?.classList.toggle("no-content")
         document.getElementById("displayer")?.classList.toggle("no-content")
       });
+    this.textProgressLoading();
+  }
+
+  async textProgressLoading() {
+    this.loadingProgress = "Connecting to Nohadon's API..."
+    setTimeout(() => {
+      this.loadingProgress = "Nohadon ACK, connecting to Githubs API..."
+    }, 2389);
+
+    setTimeout(() => {
+      this.loadingProgress = "Fetching all data..."
+    }, 3889);
+
+    setTimeout(() => {
+      this.loadingProgress = "Data fetch success. Sending to Nohadon Files..."
+    }, 1889);
+
+    setTimeout(() => {
+    }, 1833);
+
   }
 
   displayDirectory(path: string) {
@@ -87,7 +120,12 @@ export class DevelopmentProjectsComponent {
         }
       }
     }
-
     this.gitFilesContent = dirToSearch
+  }
+
+  exitProjectContent() {
+    document.getElementById("displayer")?.classList.toggle("no-content")
+    document.getElementById("container")?.classList.toggle("no-content")
+    this.isLoading = false;
   }
 }

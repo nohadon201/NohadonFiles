@@ -1,19 +1,20 @@
 import { Component, Input } from "@angular/core";
 import { NgFor } from "@angular/common";
-import { HttpServiceService } from "../../../Services/http/http-service.service";
-import { DevelopmentProjectsComponent } from "../development-projects.component";
+import { HttpServiceService } from "../Services/http/http-service.service";
+import { DevelopmentProjectsComponent } from "../main-sections/development-projects/development-projects.component";
 
 const DEFAULT_ICON = "";
+const NOT_READEABLE_FILES = ["ico", "jpg", "mp3", "mp4", ".vscode", "png", ".editorconfig"]
 
 export class DevProject {
   constructor(
     public id: number,
     public title: string = "",
+    public subTitle: string = "",
     public languages: string = "",
     public inProgress: boolean = true,
     public icon: string = DEFAULT_ICON,
     public color: string = "purple",
-    public githubProjectName: string = "",
     public description: string = ""
   ) { }
 }
@@ -33,6 +34,7 @@ export class GitDirectoryInfo {
   template: `
 <div id="displayer" class="no-content">
   <div id="project_info">
+    <img (click)="this.father.exitProjectContent()" src="resources/images/icons/close.png" style="width:30px; height:30px margin:10px;">
     <h1>{{projectSelected.title}}</h1>
     <p>{{projectSelected.description}}</p>
     <a (click)="this.father.goBackToPath()" id="back">\uf104</a><label>Current Directory: <span class="blue">{{gitContent.fullPath}}</span></label>
@@ -46,7 +48,7 @@ export class GitDirectoryInfo {
         </li>
       </ul>
       <div id="code">
-        <pre><code>{{code}}</code></pre>
+        <code>{{code}}</code>
       </div>
     </div>
   </div>
@@ -67,8 +69,12 @@ export class ProjectDisplayComponent {
   @Input() father!: DevelopmentProjectsComponent
 
   displayFile(path: string) {
-    console.log(path)
-    this.httpClient.getText('http://localhost:8080/gitContent/readFile?projectName=' + this.projectSelected?.githubProjectName + '&filePath=' + path)
+    for (let extension of NOT_READEABLE_FILES) {
+      if (path.toLowerCase().includes(extension)) {
+        return;
+      }
+    }
+    this.httpClient.getText('http://localhost:8080/gitContent/readFile?id=' + this.projectSelected?.id + '&filePath=' + path)
       .then((value) => {
         this.code = value
       });

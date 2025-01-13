@@ -73,10 +73,10 @@ export class DevelopmentProjectsComponent {
 
     setTimeout(() => {
       this.loadingProgress = "Data fetch success. Sending to Nohadon Files..."
-    }, 1889);
+    }, 3849);
 
     setTimeout(() => {
-    }, 1833);
+    }, 2833);
 
   }
 

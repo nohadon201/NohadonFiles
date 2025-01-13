@@ -76,17 +76,8 @@
   display: block;
   flex: calc(75% - 50px);
   border: 3px solid #6907F2;
-  margin: 0px;
-  padding: 10px;
 }
 
-#code code {
-  display: inline;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  text-align: justify;
-  min-height: 300px;
-}
 
 #displayer h1,
 h2,
@@ -103,7 +94,6 @@ h4 {
 
 .no-content {
   opacity: 0;
-  position: fixed;
 }
 
 /**
@@ -177,14 +167,11 @@ h4 {
   border-radius: 2em;
 }
 
-@media all and (orientation:landscape) {
-  code {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    text-align: justify;
-  }
+.CodeMirror {
+  height: 650px;
 
-  #code {
-    overflow-x: scroll;
-  }
 }
+
+
+@import "../../../node_modules/codemirror/theme/material.css";
+@import "../../../node_modules/codemirror/lib/codemirror.css";

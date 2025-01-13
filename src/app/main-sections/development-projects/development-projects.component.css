@@ -19,8 +19,8 @@ h4 {
 
 
 .no-content {
-  opacity: 0;
-  position: fixed;
+  display: none;
+  position: relative;
 }
 
 
@@ -48,7 +48,7 @@ h4 {
 
 .dev-project-info {
   position: absolute;
-  opacity: 0;
+  display: none;
   transition: all 1s;
   background-color: #000000;
   color: #F244E7;
@@ -68,11 +68,12 @@ h4 {
 
   .dev-project-info {
     opacity: 0.7;
+    display: block;
   }
 }
 
 .dev-project-info:hover {
-  opacity: 0;
+  display: none;
 }
 
 /**

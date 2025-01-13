@@ -1,4 +1,9 @@
 /*#region VariablesAndOtherSpecialProperties*/
+@import '../node_modules/codemirror/lib/codemirror.css';
+@import '../node_modules/codemirror/theme/midnight.css';
+
+@import '../node_modules/codemirror/addon/lint/lint.css';
+@import '../node_modules/codemirror/addon/hint/show-hint.css';
 
 :root {
   --display-nav: flex;

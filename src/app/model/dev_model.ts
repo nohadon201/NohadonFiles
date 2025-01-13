@@ -1,7 +1,9 @@
-import { Component, Input } from "@angular/core";
-import { NgFor } from "@angular/common";
+import { Component, Input, ViewEncapsulation } from "@angular/core";
+import { CommonModule, NgFor } from "@angular/common";
 import { HttpServiceService } from "../Services/http/http-service.service";
 import { DevelopmentProjectsComponent } from "../main-sections/development-projects/development-projects.component";
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { FormsModule } from '@angular/forms';
 
 const DEFAULT_ICON = "";
 const NOT_READEABLE_FILES = ["ico", "jpg", "mp3", "mp4", ".vscode", "png", ".editorconfig"]
@@ -30,7 +32,7 @@ export class GitDirectoryInfo {
 
 @Component({
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, CodemirrorModule, FormsModule, CommonModule],
   template: `
 <div id="displayer" class="no-content">
   <div id="project_info">
@@ -48,15 +50,32 @@ export class GitDirectoryInfo {
         </li>
       </ul>
       <div id="code">
-        <code>{{code}}</code>
+        <ngx-codemirror [(ngModel)]="code" (ngModelChange)="setEditorContent($event)" [options]="codeMirrorOptions"></ngx-codemirror>
       </div>
     </div>
   </div>
 </div>
   `,
-  styleUrl: "./dev-model.css"
+  styleUrl: "./dev-model.css",
+  encapsulation: ViewEncapsulation.None // To override the global css values of codemirror, like the size.
 })
 export class ProjectDisplayComponent {
+
+  //TODO: finish custom theme and his motherf####
+
+  public codeMirrorOptions: any = {
+    mode: "text/x-kotlin",
+    indentWithTabs: true,
+    smartIndent: true,
+    lineNumbers: true,
+    lineWrapping: true,
+    extraKeys: { "Ctrl-Space": "autocomplete" },
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    autoCloseBrackets: true,
+    matchBrackets: true,
+    lint: true,
+    theme: "midnight"
+  };
 
   constructor(private httpClient: HttpServiceService) { }
 
@@ -83,5 +102,9 @@ export class ProjectDisplayComponent {
   getClass(fileName: string): string {
     fileName = fileName.substring(fileName.lastIndexOf('.') + 1)
     return fileName;
+  }
+
+  setEditorContent(event: any) {
+    console.log(this.code);
   }
 }

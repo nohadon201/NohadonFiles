@@ -171,7 +171,3 @@ h4 {
   height: 650px;
 
 }
-
-
-@import "../../../node_modules/codemirror/theme/material.css";
-@import "../../../node_modules/codemirror/lib/codemirror.css";

@@ -1,9 +1,10 @@
-import { Component, Input, ViewEncapsulation } from "@angular/core";
+import { Component, Input, ViewChild, ViewEncapsulation } from "@angular/core";
 import { CommonModule, NgFor } from "@angular/common";
 import { HttpServiceService } from "../Services/http/http-service.service";
 import { DevelopmentProjectsComponent } from "../main-sections/development-projects/development-projects.component";
-import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { CodemirrorComponent, CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { FormsModule } from '@angular/forms';
+import { DefaultColorParserMap } from "./color-mode-map";
 
 const DEFAULT_ICON = "";
 const NOT_READEABLE_FILES = ["ico", "jpg", "mp3", "mp4", ".vscode", "png", ".editorconfig"]
@@ -50,7 +51,10 @@ export class GitDirectoryInfo {
         </li>
       </ul>
       <div id="code">
-        <ngx-codemirror [(ngModel)]="code" (ngModelChange)="setEditorContent($event)" [options]="codeMirrorOptions"></ngx-codemirror>
+        <ngx-codemirror #codeeditor
+          [(ngModel)]="code"
+          [options]="codeMirrorOptions">
+          </ngx-codemirror>
       </div>
     </div>
   </div>
@@ -61,10 +65,8 @@ export class GitDirectoryInfo {
 })
 export class ProjectDisplayComponent {
 
-  //TODO: finish custom theme and his motherf####
-
   public codeMirrorOptions: any = {
-    mode: "text/x-kotlin",
+    mode: "",
     indentWithTabs: true,
     smartIndent: true,
     lineNumbers: true,
@@ -74,8 +76,12 @@ export class ProjectDisplayComponent {
     autoCloseBrackets: true,
     matchBrackets: true,
     lint: true,
-    theme: "midnight"
+    theme: "midnight",
   };
+
+  private mapOfExtension: DefaultColorParserMap = new DefaultColorParserMap();
+
+  @ViewChild('codeeditor') private codeEditor: CodemirrorComponent;
 
   constructor(private httpClient: HttpServiceService) { }
 
@@ -87,11 +93,25 @@ export class ProjectDisplayComponent {
 
   @Input() father!: DevelopmentProjectsComponent
 
+
   displayFile(path: string) {
+    this.codeEditor.codeMirror?.setOption("mode", "text/x-kotlin")
     for (let extension of NOT_READEABLE_FILES) {
       if (path.toLowerCase().includes(extension)) {
         return;
       }
+    }
+    if (path.includes(".")) {
+      var extensionArray = path.split(".")
+      var extensionOfFile = extensionArray[extensionArray.length - 1].toLowerCase()
+      this.codeEditor.codeMirror?.setOption("mode", this.mapOfExtension.get(extensionOfFile))
+    } else {
+      this.codeEditor.codeMirror?.setOption("mode", this.mapOfExtension.get(""))
+    }
+    if (path.includes('&')) {
+      path = path.replace("&", "%26")
+      console.log(path)
+      console.log(path.replace("&", "%26"))
     }
     this.httpClient.getText('http://localhost:8080/gitContent/readFile?id=' + this.projectSelected?.id + '&filePath=' + path)
       .then((value) => {
@@ -104,7 +124,4 @@ export class ProjectDisplayComponent {
     return fileName;
   }
 
-  setEditorContent(event: any) {
-    console.log(this.code);
-  }
 }

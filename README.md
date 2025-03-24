@@ -26,7 +26,23 @@ The site is divided into different sections, each highlighting a specific catego
 
 ## Sections
 
-### Game Development Projects [Under Construction]
+### Software Development
+Software Development is the section where I share all my projects that I think that they could be interesting. 
+#### What kind of projects have?
+There is a variety of projects like: 
+- Little demos (like frameworks, Dessign and Arquitecture Patterns or other concepts like Multithreading)
+- Applications 
+- APIS 
+And there is more!
+#### Project information
+Each project has: 
+- The basic information like the language and technology used 
+- A description explaining the project 
+- A subsection that is connected to the github api to see the source code.
+
+### Game Developement [Under Construction]
+In this section I have all code realted with Game Development. 
+#### Game Development Projects 
 Here, you will find a collection of my game development projects, using different engines and technologies.
 
 - **Unity Projects**: This section contains projects developed using the Unity engine. Each project will include descriptions, gameplay videos, and links to the source code (if applicable).
@@ -34,14 +50,13 @@ Here, you will find a collection of my game development projects, using differen
 - **Godot Projects**: In this section, I showcase my game projects built with the Godot engine, explaining their development process, design decisions, and results.
 
 - **Unreal Engine Projects**: This section features projects built using Unreal Engine, including details on 3D modeling, level design, and gameplay mechanics.
-
-### NohadEngine [Under Construction]
-A special section dedicated to **NohadEngine**, a custom game engine I am developing from scratch using **C++** and **SFML**. Here you will find:
+#### NohadEngine 
+A special sub-section dedicated to **NohadEngine**, a custom game engine that I am currently developing from scratch using **C++** and **SFML**. Here you will find:
 
 - Development updates
 - Code structure and architecture breakdowns
 - Demo videos showcasing engine capabilities
-- Links to the repository and technical documentation
+- Technical documentation
 
 ### Graphics Development Projects [Under Construction]
 In this section, I will present upcoming projects that involve more advanced graphics programming, including **OpenGL**, **WebGL**, and **shader development**. Planned projects will include:

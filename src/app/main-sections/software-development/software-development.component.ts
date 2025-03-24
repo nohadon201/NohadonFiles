@@ -8,11 +8,11 @@ import { HttpServiceService } from '../../Services/http/http-service.service';
 @Component({
   standalone: true,
   imports: [NgFor, CommonModule, ProjectDisplayComponent, NgComponentOutlet],
-  selector: 'app-development-projects',
-  templateUrl: './development-projects.component.html',
-  styleUrl: './development-projects.component.css'
+  selector: 'app-softwaredev',
+  templateUrl: './software-development.component.html',
+  styleUrl: './software-development.component.css'
 })
-export class DevelopmentProjectsComponent {
+export class SoftwareDevelopmentComponent {
 
   public projects: DevProject[] = [];
 
@@ -36,6 +36,11 @@ export class DevelopmentProjectsComponent {
   }
 
   get ProjectDisplayType() { return ProjectDisplayComponent }
+
+  isMobile(): Boolean {
+
+    return false;
+  }
 
   getProject(project: DevProject) {
     if (this.isLoading) return;

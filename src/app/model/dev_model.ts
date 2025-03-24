@@ -1,13 +1,13 @@
 import { Component, Input, ViewChild, ViewEncapsulation } from "@angular/core";
 import { CommonModule, NgFor } from "@angular/common";
 import { HttpServiceService } from "../Services/http/http-service.service";
-import { DevelopmentProjectsComponent } from "../main-sections/development-projects/development-projects.component";
+import { SoftwareDevelopmentComponent } from "../main-sections/software-development/software-development.component";
 import { CodemirrorComponent, CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { FormsModule } from '@angular/forms';
 import { DefaultColorParserMap } from "./color-mode-map";
 
 const DEFAULT_ICON = "";
-const NOT_READEABLE_FILES = ["ico", "jpg", "mp3", "mp4", ".vscode", "png", ".editorconfig"]
+const NOT_READEABLE_FILES = ["ico", "jpg", "mp3", "mp4", ".vscode", "png", ".editorconfig", ".zip"]
 
 export class DevProject {
   constructor(
@@ -35,7 +35,7 @@ export class GitDirectoryInfo {
   standalone: true,
   imports: [NgFor, CodemirrorModule, FormsModule, CommonModule],
   template: `
-<div id="displayer" class="no-content">
+<div>
   <div id="project_info">
     <img (click)="this.father.exitProjectContent()" src="resources/images/icons/close.png" style="width:30px; height:30px margin:10px;">
     <h1>{{projectSelected.title}}</h1>
@@ -83,19 +83,17 @@ export class ProjectDisplayComponent {
 
   @ViewChild('codeeditor') private codeEditor: CodemirrorComponent;
 
-  constructor(private httpClient: HttpServiceService) { }
-
   @Input() projectSelected!: DevProject;
 
   @Input() code!: string;
 
   @Input() gitContent!: GitDirectoryInfo;
 
-  @Input() father!: DevelopmentProjectsComponent
+  @Input() father!: SoftwareDevelopmentComponent
 
+  constructor(private httpClient: HttpServiceService) { }
 
   displayFile(path: string) {
-    this.codeEditor.codeMirror?.setOption("mode", "text/x-kotlin")
     for (let extension of NOT_READEABLE_FILES) {
       if (path.toLowerCase().includes(extension)) {
         return;
@@ -110,8 +108,6 @@ export class ProjectDisplayComponent {
     }
     if (path.includes('&')) {
       path = path.replace("&", "%26")
-      console.log(path)
-      console.log(path.replace("&", "%26"))
     }
     this.httpClient.getText('http://localhost:8080/gitContent/readFile?id=' + this.projectSelected?.id + '&filePath=' + path)
       .then((value) => {

@@ -28,7 +28,6 @@ h4 {
   padding: 10px;
   border-top: solid;
   color: #7D3DFC;
-  font-weight: bold;
   display: flex;
   flex-wrap: wrap;
   width: 98%;
@@ -42,7 +41,7 @@ h4 {
   text-align: center;
   padding: 4px;
   user-select: none;
-  flex: 25%;
+  flex: calc(25% - 10px);
   min-width: 300px;
 }
 

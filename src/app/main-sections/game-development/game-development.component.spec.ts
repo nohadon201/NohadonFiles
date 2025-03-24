@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NohadengineComponent } from './nohadengine.component';
+import { GameDevelopmentComponent } from './game-development.component';
 
 describe('NohadengineComponent', () => {
-  let component: NohadengineComponent;
-  let fixture: ComponentFixture<NohadengineComponent>;
+  let component: GameDevelopmentComponent;
+  let fixture: ComponentFixture<GameDevelopmentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NohadengineComponent]
+      imports: [GameDevelopmentComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(NohadengineComponent);
+    fixture = TestBed.createComponent(GameDevelopmentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

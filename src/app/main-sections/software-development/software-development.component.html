@@ -1,0 +1,68 @@
+<div id="container" class="">
+  <div>
+    <div>
+      <h1>Software Development Projects</h1>
+      <br>
+      <h2>Introduction</h2>
+      <p>Welcome to the Development Projects section, where creativity meets experimentation. Here, you’ll find a
+        collection of small code repositories and demos that showcase a variety of programming techniques, concepts, and
+        paradigms. From game prototypes and framework explorations to interesting ideas like multithreading or design
+        patterns, this section is all about diving into the possibilities of code.</p>
+      <p>Each project is designed not only to highlight technical skills but also to inspire curiosity and innovation.
+        Whether you're looking for practical examples, unique approaches, or just some programming inspiration, this is
+        the place to start exploring.</p>
+      <br>
+      <h2>How it works?</h2>
+      <ol>
+        <li>Navigate through the different projects and with the cursor you can see what description it has and also you
+          can see wich languages it have.</li>
+        <li>Click on the project you want to see.</li>
+        <li>The Nohadon Files API will connect with the github API</li>
+        <li>Once all is connected the API will parse all information and it will be loaded in the page.</li>
+        <li>Explore as you want!</li>
+      </ol>
+      <br *ngIf="isMobile()">
+      <p *ngIf="isMobile()" style="background-color: black; color: red;">Warning: There are some devices like
+        smartphones where the code is
+        not displayed correctly. For a better experience use a tablet or other devices with a large screen.</p>
+      <br>
+      <br>
+      <h1>Projects</h1>
+      <div class="grid">
+        <ng-container *ngFor="let row of projects">
+          <a (click)="getProject(row)" class="dev-project-item">
+            <span class="icon {{row.color}}">{{row.icon}}</span><br>
+            <label>{{row.title}}</label>
+            <div class="dev-project-info">
+              <span *ngIf="row.inProgress" class="red" style="font-size:medium;"><br>[In
+                progress]</span>
+              <p><span class="purple">Tags -> </span>{{row.languages}}</p>
+              <p><span class="purple">Description -></span> {{row.subTitle}}</p>
+            </div>
+          </a>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="loader-container" class="no-content">
+  <div class="pad-loading">
+    <div class="binding"></div>
+    <div class="pad">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+    <div class="loader"></div>
+  </div>
+  <br>
+  <label>{{loadingProgress}}</label>
+</div>
+<div id="displayer" class="no-content">
+  <ng-container *ngComponentOutlet="
+  this.ProjectDisplayType
+  inputs: {projectSelected: this.projectSelected, code:'', gitContent: this.gitFilesContent, father: this};
+  " id="container_project">
+  </ng-container>
+</div>
